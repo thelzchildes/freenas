@@ -212,7 +212,7 @@ sed -i '' -e 's+.*curl.*+                "curl"  => '\''/usr/local/bin/curl'\'',
 echo done
 
 echo -n Modifying Crontab...
-echo "SHELL=/bin/sh" >> /var/cron/tabs/merc
-echo "PATH=/etc:/bin:/sbin:/usr/bin:/usr/sbin" >> /var/cron/tabs/merc
-echo "@reboot /home/merc/rtorrent.sh" >> /var/cron/tabs/merc
+echo "SHELL=/bin/sh" >> /var/cron/tabs/root
+echo "PATH=/etc:/bin:/sbin:/usr/bin:/usr/sbin" >> /var/cron/tabs/root
+echo "@reboot /home/merc/rtorrent.sh" >> /var/cron/tabs/root
 echo done
