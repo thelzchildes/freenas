@@ -116,7 +116,7 @@ chown merc:merc /home/merc/.rtorrent.rc >> /tmp/rtorrent_install.log
 echo done
 
 echo -n Setting Up Folders...
-mkdir -p /appdata/rtorrent1/.session >> /tmp/rtorrent_install.log
+mkdir -p /media/appdata/rtorrent1/.session >> /tmp/rtorrent_install.log
 mkdir -p /media/downloads/watch >> /tmp/rtorrent_install.log
 mkdir -p "/media/downloads/watch/TV Shows"
 mkdir -p /media/downloads/watch/Movies
