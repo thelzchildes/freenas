@@ -1,2 +1,2 @@
 # Install
-cd /tmp && pkg install -y nano && nano /tmp/install.sh && chmod +x /tmp/install.sh && ./install.sh
+cd /tmp && curl https://github.com/thelzchildes/freenas-rtorrent/master/install.sh && chmod +x /tmp/install.sh && ./install.sh
