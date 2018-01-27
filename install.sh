@@ -31,11 +31,11 @@ echo -n Upgrading Packages...
 pkg upgrade -y >> /tmp/rtorrent_install.log
 echo done
 
-echo -n Installing Portamaster...
-pkg install -y portmaster
-pkg2ng
-portmaster -aydbg --no-confirm
-echo done
+# echo -n Installing Portamaster...
+# pkg install -y portmaster
+# pkg2ng
+# portmaster -aydbg --no-confirm
+# echo done
 
 echo -n Installing Screen...
 pkg install -y -f screen >> /tmp/rtorrent_install.log
@@ -161,7 +161,10 @@ echo "# and/or the available resources to spend)" >> /home/merc/.rtorrent.rc
 echo "pieces.memory.max.set = 8192M" >> /home/merc/.rtorrent.rc
 echo "network.xmlrpc.size_limit.set = 16M" >> /home/merc/.rtorrent.rc
 
-echo "execute2 = {sh,-c,/usr/bin/php /usr/local/www/rutorrent/php/initplugins.php merc &}" >> /home/merc/.rtorrent.rc
+echo 'log.open_file = "rtorrent", /config/log/rtorrent/rtorrent.log' >> /home/merc/.rtorrent.rc
+echo 'log.add_output = "info", "rtorrent"' >> /home/merc/.rtorrent.rc
+
+echo "execute = {sh,-c,/usr/bin/php /usr/local/www/rutorrent/php/initplugins.php &}" >> /home/merc/.rtorrent.rc
 
 sed -i '' -e 's+#directory =.*+directory = /media/downloads/incoming/+g' /home/merc/.rtorrent.rc >> /tmp/rtorrent_install.log
 sed -i '' -e 's+#directory =.*+directory = /media/downloads/incoming/+g' ~/.rtorrent.rc >> /tmp/rtorrent_install.log
