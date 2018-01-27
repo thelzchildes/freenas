@@ -1,4 +1,7 @@
-#!/bin/tcsh
+#!/bin/sh
+
+read -p "Jail storage set up?" jailstor
+jailstor=${jailstor:-no}
 
 echo -n Setting up default rtorrent user...
 pw addgroup merc > /tmp/rtorrent_install.log
@@ -7,7 +10,7 @@ echo "merc" | pw useradd -n merc -u 816 -s /bin/tcsh -m -G merc,www,media -d /ho
 echo done
 
 echo -n Setting install variables...
-setenv BATCH yes >> /tmp/rtorrent_install.log
+export BATCH="yes" >> /tmp/rtorrent_install.log
 cat <<EOF >> /etc/make.conf
 ALLOW_UNSUPPORTED_SYSTEM=yes
 EOF
@@ -115,37 +118,39 @@ chown merc:merc /home/merc/.rtorrent.rc >> /tmp/rtorrent_install.log
 chown merc:merc /home/merc/.rtorrent.rc >> /tmp/rtorrent_install.log
 echo done
 
-echo -n Setting Up Folders...
-mkdir -p /media/appdata/rtorrent1/.session >> /tmp/rtorrent_install.log
-mkdir -p /media/downloads/watch >> /tmp/rtorrent_install.log
-mkdir -p "/media/downloads/watch/TV Shows"
-mkdir -p /media/downloads/watch/Movies
-mkdir -p /media/downloads/watch/Games
-mkdir -p /media/downloads/watch/Books
-mkdir -p /media/downloads/watch/Manual
-mkdir -p /media/downloads/watch/Applications
-mkdir -p /media/downloads/watch/Music
-mkdir -p /media/downloads/complete >> /tmp/rtorrent_install.log
-mkdir -p "/media/downloads/complete/TV Shows"
-mkdir -p /media/downloads/complete/Movies
-mkdir -p /media/downloads/complete/Games
-mkdir -p /media/downloads/complete/Books
-mkdir -p /media/downloads/complete/Manual
-mkdir -p /media/downloads/complete/Applications
-mkdir -p /media/downloads/complete/Music
-mkdir -p /media/downloads/incoming >> /tmp/rtorrent_install.log
-mkdir -p "/media/downloads/incoming/TV Shows"
-mkdir -p /media/downloads/incoming/Movies
-mkdir -p /media/downloads/incoming/Games
-mkdir -p /media/downloads/incoming/Books
-mkdir -p /media/downloads/incoming/Manual
-mkdir -p /media/downloads/incoming/Applications
-mkdir -p /media/downloads/incoming/Music
-mkdir -p /media/downloads/watch/TV Shows
-chown -R merc:merc /media/appdata >> /tmp/rtorrent_install.log
-chown -R merc:merc /media/downloads >> /tmp/rtorrent_install.log
-chown -R merc:merc /home/merc >> /tmp/rtorrent_install.log
-echo done
+if [ "${jailstor}" = 'yes' ]; then
+  echo -n Setting Up Folders...
+  mkdir -p /media/appdata/rtorrent1/.session >> /tmp/rtorrent_install.log
+  mkdir -p /media/downloads/watch >> /tmp/rtorrent_install.log
+  mkdir -p "/media/downloads/watch/TV Shows"
+  mkdir -p /media/downloads/watch/Movies
+  mkdir -p /media/downloads/watch/Games
+  mkdir -p /media/downloads/watch/Books
+  mkdir -p /media/downloads/watch/Manual
+  mkdir -p /media/downloads/watch/Applications
+  mkdir -p /media/downloads/watch/Music
+  mkdir -p /media/downloads/complete >> /tmp/rtorrent_install.log
+  mkdir -p "/media/downloads/complete/TV Shows"
+  mkdir -p /media/downloads/complete/Movies
+  mkdir -p /media/downloads/complete/Games
+  mkdir -p /media/downloads/complete/Books
+  mkdir -p /media/downloads/complete/Manual
+  mkdir -p /media/downloads/complete/Applications
+  mkdir -p /media/downloads/complete/Music
+  mkdir -p /media/downloads/incoming >> /tmp/rtorrent_install.log
+  mkdir -p "/media/downloads/incoming/TV Shows"
+  mkdir -p /media/downloads/incoming/Movies
+  mkdir -p /media/downloads/incoming/Games
+  mkdir -p /media/downloads/incoming/Books
+  mkdir -p /media/downloads/incoming/Manual
+  mkdir -p /media/downloads/incoming/Applications
+  mkdir -p /media/downloads/incoming/Music
+  mkdir -p /media/downloads/watch/TV Shows
+  chown -R merc:merc /media/appdata >> /tmp/rtorrent_install.log
+  chown -R merc:merc /media/downloads >> /tmp/rtorrent_install.log
+  chown -R merc:merc /home/merc >> /tmp/rtorrent_install.log
+  echo done
+fi
 
 echo -n Configuring Lighttpd and Rtorrent...
 
