@@ -142,6 +142,8 @@ mkdir -p /media/downloads/incoming/Manual
 mkdir -p /media/downloads/incoming/Applications
 mkdir -p /media/downloads/incoming/Music
 mkdir -p /media/downloads/watch/TV Shows
+chown -R merc:merc /media/appdata >> /tmp/rtorrent_install.log
+chown -R merc:merc /media/downloads >> /tmp/rtorrent_install.log
 chown -R merc:merc /home/merc >> /tmp/rtorrent_install.log
 echo done
 
