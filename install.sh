@@ -27,11 +27,11 @@ echo done
 #echo done
 
 echo -n Updating Package...
-pkg update >> /tmp/rtorrent_install.log 2> /tmp/rtorrent_install_error.log
+pkg update >> /tmp/rtorrent_install.log 2>> /tmp/rtorrent_install_error.log
 echo done
 
 echo -n Upgrading Packages...
-pkg upgrade -y >> /tmp/rtorrent_install.log
+pkg upgrade -y /tmp/rtorrent_install.log 2>> /tmp/rtorrent_install_error.log
 echo done
 
 # echo -n Installing Portamaster...
