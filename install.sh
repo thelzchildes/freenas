@@ -32,9 +32,9 @@ pkg upgrade -y >> /tmp/rtorrent_install.log
 echo done
 
 echo -n Installing Portamaster...
-pkg install -y portmaster >> /tmp/rtorrent_install.log
-pkg2ng >> /tmp/rtorrent_install.log
-portmaster -aydbg --no-confirm >> /tmp/rtorrent_install.log
+pkg install -y portmaster
+pkg2ng
+portmaster -aydbg --no-confirm
 echo done
 
 echo -n Installing Screen...
@@ -142,7 +142,7 @@ mkdir -p /media/downloads/incoming/Manual
 mkdir -p /media/downloads/incoming/Applications
 mkdir -p /media/downloads/incoming/Music
 mkdir -p /media/downloads/watch/TV Shows
-chown -R rtorrent:rtorrent /home/merc >> /tmp/rtorrent_install.log
+chown -R merc:merc /home/merc >> /tmp/rtorrent_install.log
 echo done
 
 echo -n Configuring Lighttpd and Rtorrent...
