@@ -16,12 +16,12 @@ WITH_PKGNG=yes
 EOF
 echo done
 
-echo Fetching Ports...
-portsnap fetch >> /tmp/rtorrent_install.log
+#echo Fetching Ports...
+#portsnap fetch >> /tmp/rtorrent_install.log
 
-echo -n Extracing Ports...
-portsnap extract >> /tmp/rtorrent_install.log
-echo done
+#echo -n Extracing Ports...
+#portsnap extract >> /tmp/rtorrent_install.log
+#echo done
 
 echo -n Updating Package...
 pkg update >> /tmp/rtorrent_install.log
@@ -200,8 +200,14 @@ echo -n Creating rTorrent Start Script...
 echo '#\!/bin/sh' >> /home/merc/rtorrent.sh
 echo 'PATH=/etc:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin' >> /home/merc/rtorrent.sh
 echo 'export TERM=xterm' >> /home/merc/rtorrent.sh
-echo 'screen -dmS screen_rtorrent merc' >> /home/merc/rtorrent.sh
+echo 'screen -dmS screen_rtorrent rtorrent' >> /home/merc/rtorrent.sh
 chmod 777 /home/merc/rtorrent.sh >> /tmp/rtorrent_install.log
 chown merc:merc /home/merc/rtorrent.sh >> /tmp/rtorrent_install.log
 sed -i '' -e 's+.*curl.*+                "curl"  => '\''/usr/local/bin/curl'\'',+g' /usr/local/www/rutorrent/conf/config.php >> /tmp/rtorrent_install.log
+echo done
+
+echo -n Modifying Crontab...
+echo "SHELL=/bin/sh" >> /var/cron/tabs/merc
+echo "PATH=/etc:/bin:/sbin:/usr/bin:/usr/sbin" >> /var/cron/tabs/merc
+echo "@reboot /home/merc/rtorrent.sh" >> /var/cron/tabs/merc
 echo done
