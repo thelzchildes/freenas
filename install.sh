@@ -105,7 +105,7 @@ echo done
 echo -n Installing rTorrent...
 mkdir -p /usr/local/www >> /tmp/rtorrent_install.log
 cd /usr/local/www >> /tmp/rtorrent_install.log
-git clone https://github.com/Novik/ruTorrent.git >> /tmp/rtorrent_install.log
+git clone https://github.com/Novik/ruTorrent.git >> /tmp/rtorrent_install.log 2> /tmp/rtorrent_install_error.log
 mv ruTorrent/ rutorrent >> /tmp/rtorrent_install.log
 chown -R merc:www /usr/local/www/rutorrent >> /tmp/rtorrent_install.log
 chmod -R 777 /usr/local/www/rutorrent >> /tmp/rtorrent_install.log
