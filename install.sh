@@ -209,7 +209,7 @@ sysrc lighttpd_enable=yes >> /tmp/rtorrent_install.log
 echo done
 
 echo -n Creating rTorrent Start Script...
-echo '#\!/bin/sh' >> /home/merc/rtorrent.sh
+echo '#!/bin/sh' >> /home/merc/rtorrent.sh
 echo 'PATH=/etc:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin' >> /home/merc/rtorrent.sh
 echo 'export TERM=xterm' >> /home/merc/rtorrent.sh
 echo 'screen -dmS screen_rtorrent rtorrent' >> /home/merc/rtorrent.sh
