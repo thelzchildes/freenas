@@ -43,6 +43,10 @@ echo done
 # portmaster -aydbg --no-confirm
 # echo done
 
+echo -n Installing Git...
+pkg install -y -f git >> /tmp/rtorrent_install.log
+echo done
+
 echo -n Installing Screen...
 pkg install -y -f screen >> /tmp/rtorrent_install.log
 echo done
