@@ -161,30 +161,26 @@ fi
 
 echo -n Configuring Lighttpd and Rtorrent...
 
-echo "trackers.numwant.set = -1" >> /home/merc/.rtorrent.rc
-echo "dht.mode.set = disable" >> /home/merc/.rtorrent.rc
-echo "protocol.pex.set = no" >> /home/merc/.rtorrent.rc
-echo "trackers.use_udp.set = no" >> /home/merc/.rtorrent.rc
-echo "network.http.max_open.set = 256" >> /home/merc/.rtorrent.rc
-echo "network.max_open_files.set = 512" >> /home/merc/.rtorrent.rc
+echo "trackers.numwant.set = -1" >> /root/.rtorrent.rc
+echo "dht.mode.set = disable" >> /root/.rtorrent.rc
+echo "protocol.pex.set = no" >> /root/.rtorrent.rc
+echo "trackers.use_udp.set = no" >> /root/.rtorrent.rc
+echo "network.http.max_open.set = 256" >> /root/.rtorrent.rc
+echo "network.max_open_files.set = 512" >> /root/.rtorrent.rc
 
 echo "# Memory resource usage (increase if you have a large number of items loaded," >> /home/merc/.rtorrent.rc
-echo "# and/or the available resources to spend)" >> /home/merc/.rtorrent.rc
-echo "pieces.memory.max.set = 8192M" >> /home/merc/.rtorrent.rc
-echo "network.xmlrpc.size_limit.set = 16M" >> /home/merc/.rtorrent.rc
+echo "# and/or the available resources to spend)" >> /root/.rtorrent.rc
+echo "pieces.memory.max.set = 8192M" >> /root/.rtorrent.rc
+echo "network.xmlrpc.size_limit.set = 16M" >> /root/.rtorrent.rc
 
 echo 'log.open_file = "rtorrent", /config/log/rtorrent/rtorrent.log' >> /home/merc/.rtorrent.rc
 echo 'log.add_output = "info", "rtorrent"' >> /home/merc/.rtorrent.rc
 
 echo "execute = {sh,-c,/usr/bin/php /usr/local/www/rutorrent/php/initplugins.php &}" >> /home/merc/.rtorrent.rc
 
-sed -i '' -e 's+#directory =.*+directory = /media/downloads/incoming/+g' /home/merc/.rtorrent.rc >> /tmp/rtorrent_install.log
 sed -i '' -e 's+#directory =.*+directory = /media/downloads/incoming/+g' ~/.rtorrent.rc >> /tmp/rtorrent_install.log
-sed -i '' -e 's+#session =.*+session = /media/appdata/rtorrent1/.session/+g' /home/merc/.rtorrent.rc >> /tmp/rtorrent_install.log
 sed -i '' -e 's+#session =.*+session = /media/appdata/rtorrent1/.session/+g' ~/.rtorrent.rc >> /tmp/rtorrent_install.log
-sed -i '' -e "s+.*port_range.*+port_range = 500${portoffset}-500${portoffset}+g" /home/merc/.rtorrent.rc >> /tmp/rtorrent_install.log
 sed -i '' -e "s+.*port_range.*+port_range = 500${portoffset}-500${portoffset}+g" ~/.rtorrent.rc >> /tmp/rtorrent_install.log
-echo "scgi_port = 127.0.0.1:50${portoffset}" >> /home/merc/.rtorrent.rc
 echo "scgi_port = 127.0.0.1:50${portoffset}" >> ~/.rtorrent.rc
 sed -i '' -e "s+"\$scgi_port".*+"\$scgi_port" = 50${portoffset};+g" /usr/local/www/rutorrent/conf/config.php >> /tmp/rtorrent_install.log
 sed -i '' -e 's+server.document-root =.*+server.document-root = "/usr/local/www/rutorrent"+g' /usr/local/etc/lighttpd/lighttpd.conf >> /tmp/rtorrent_install.log
