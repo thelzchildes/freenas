@@ -1,7 +1,10 @@
 #!/bin/sh
 
-read -p "Jail storage set up?" jailstor
+read -p "Create default directories?" jailstor
 jailstor=${jailstor:-no}
+
+read -p "Port Offset (01-99)?" portoffset
+portoffset=${portoffset:-00}
 
 echo -n Setting up default rtorrent user...
 pw addgroup merc > /tmp/rtorrent_install.log
@@ -175,11 +178,11 @@ sed -i '' -e 's+#directory =.*+directory = /media/downloads/incoming/+g' /home/m
 sed -i '' -e 's+#directory =.*+directory = /media/downloads/incoming/+g' ~/.rtorrent.rc >> /tmp/rtorrent_install.log
 sed -i '' -e 's+#session =.*+session = /media/appdata/rtorrent1/.session/+g' /home/merc/.rtorrent.rc >> /tmp/rtorrent_install.log
 sed -i '' -e 's+#session =.*+session = /media/appdata/rtorrent1/.session/+g' ~/.rtorrent.rc >> /tmp/rtorrent_install.log
-sed -i '' -e 's+#port_range.*+port_range = 50001-50001+g' /home/merc/.rtorrent.rc >> /tmp/rtorrent_install.log
-sed -i '' -e 's+#port_range.*+port_range = 50001-50001+g' ~/.rtorrent.rc >> /tmp/rtorrent_install.log
-echo "scgi_port = 127.0.0.1:5001" >> /home/merc/.rtorrent.rc
-echo "scgi_port = 127.0.0.1:5001" >> ~/.rtorrent.rc
-sed -i '' -e 's+$scgi_port.*+$scgi_port = 5001;+g' /usr/local/www/rutorrent/conf/config.php >> /tmp/rtorrent_install.log
+sed -i '' -e 's+#port_range.*+port_range = 500${portoffset}-500${portoffset}+g' /home/merc/.rtorrent.rc >> /tmp/rtorrent_install.log
+sed -i '' -e 's+#port_range.*+port_range = 500${portoffset}-500${portoffset}+g' ~/.rtorrent.rc >> /tmp/rtorrent_install.log
+echo "scgi_port = 127.0.0.1:50${portoffset}" >> /home/merc/.rtorrent.rc
+echo "scgi_port = 127.0.0.1:50${portoffset}" >> ~/.rtorrent.rc
+sed -i '' -e 's+$scgi_port.*+$scgi_port = 50${portoffset};+g' /usr/local/www/rutorrent/conf/config.php >> /tmp/rtorrent_install.log
 sed -i '' -e 's+server.document-root =.*+server.document-root = "/usr/local/www/rutorrent"+g' /usr/local/etc/lighttpd/lighttpd.conf >> /tmp/rtorrent_install.log
 sed -i '' -e 's+#include "conf.d/fastcgi.conf".*+include "conf.d/fastcgi.conf"+g' /usr/local/etc/lighttpd/modules.conf >> /tmp/rtorrent_install.log
 echo 'fastcgi.server = ( ".php" => ((' >> /usr/local/etc/lighttpd/conf.d/fastcgi.conf
