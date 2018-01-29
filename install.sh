@@ -1,9 +1,9 @@
 #!/bin/sh
 
-read -p "Create default directories?" jailstor
+read -p "Create default directories? " jailstor
 jailstor=${jailstor:-no}
 
-read -p "Port Offset (01-99)?" portoffset
+read -p "Port Offset (01-99)? " portoffset
 portoffset=${portoffset:-00}
 
 echo -n Setting up default rtorrent user...
