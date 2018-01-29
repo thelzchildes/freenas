@@ -182,8 +182,8 @@ sed -i '' -e 's+#directory =.*+directory = /media/downloads/incoming/+g' /home/m
 sed -i '' -e 's+#directory =.*+directory = /media/downloads/incoming/+g' ~/.rtorrent.rc >> /tmp/rtorrent_install.log
 sed -i '' -e 's+#session =.*+session = /media/appdata/rtorrent1/.session/+g' /home/merc/.rtorrent.rc >> /tmp/rtorrent_install.log
 sed -i '' -e 's+#session =.*+session = /media/appdata/rtorrent1/.session/+g' ~/.rtorrent.rc >> /tmp/rtorrent_install.log
-sed -i '' -e 's+#port_range.*+port_range = 500${portoffset}-500${portoffset}+g' /home/merc/.rtorrent.rc >> /tmp/rtorrent_install.log
-sed -i '' -e 's+#port_range.*+port_range = 500${portoffset}-500${portoffset}+g' ~/.rtorrent.rc >> /tmp/rtorrent_install.log
+sed -i '' -e "s+.*port_range.*+port_range = 500${portoffset}-500${portoffset}+g" /home/merc/.rtorrent.rc >> /tmp/rtorrent_install.log
+sed -i '' -e "s+.*port_range.*+port_range = 500${portoffset}-500${portoffset}+g" ~/.rtorrent.rc >> /tmp/rtorrent_install.log
 echo "scgi_port = 127.0.0.1:50${portoffset}" >> /home/merc/.rtorrent.rc
 echo "scgi_port = 127.0.0.1:50${portoffset}" >> ~/.rtorrent.rc
 sed -i '' -e 's+$scgi_port.*+$scgi_port = 50${portoffset};+g' /usr/local/www/rutorrent/conf/config.php >> /tmp/rtorrent_install.log
