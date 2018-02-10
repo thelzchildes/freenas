@@ -10,5 +10,5 @@ setenv ALLOW_UNSUPPORTED_SYSTEM yes && setenv BATCH yes && portsnap fetch && por
 
 # Upgrade plex-pass
 ```
-setenv ALLOW_UNSUPPORTED_SYSTEM yes && setenv BATCH yes && portsnap fetch update && cd /usr/ports/ports-mgmt/portmaster && make deinstall clean && make install clean && portmaster -Gaydf --no-confirm --update-if-newer && sysrc plexmediaserver_plexpass_enable=YES && service plexmediaserver_plexpass start
+service plexmediaserver_plexpass stop && mv /usr/local/plexdata-plexpass/ /usr/local/plexdata-plexpass-bak/ && setenv ALLOW_UNSUPPORTED_SYSTEM yes && setenv BATCH yes && portsnap fetch update && cd /usr/ports/ports-mgmt/portmaster && make deinstall clean && make install clean && portmaster -Gaydf --no-confirm --update-if-newer && sysrc plexmediaserver_plexpass_enable=YES && service plexmediaserver_plexpass stop && mv /usr/local/plexdata-plexpass-bak/ /usr/local/plexdata-plexpass/ && service plexmediaserver_plexpass stop
 ```
