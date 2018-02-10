@@ -10,5 +10,5 @@ setenv ALLOW_UNSUPPORTED_SYSTEM yes && setenv BATCH yes && portsnap fetch && por
 
 # Upgrade plex-pass
 ```
-setenv ALLOW_UNSUPPORTED_SYSTEM yes && setenv BATCH yes && portsnap fetch update && cd /usr/ports/ports-mgmt/portmaster && make deinstall clean && make install clean && portmaster -aydf --no-confirm
+setenv ALLOW_UNSUPPORTED_SYSTEM yes && setenv BATCH yes && portsnap fetch update && cd /usr/ports/ports-mgmt/portmaster && make deinstall clean && make install clean && portmaster -Gaydf --no-confirm
 ```
