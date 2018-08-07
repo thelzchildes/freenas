@@ -21,5 +21,5 @@ portsnap fetch update && setenv ALLOW_UNSUPPORTED_SYSTEM yes && portmaster -aydG
 
 # Install Emby
 ```
-setenv ALLOW_UNSUPPORTED_SYSTEM yes && setenv BATCH yes && portsnap fetch && portsnap extract && pkg install mono libass fontconfig freetype2 fribidi gnutls iconv opus samba48 sqlite3 libtheora libva libvorbis webp libx264 libzvbi && pkg add https://github.com/MediaBrowser/Emby.Releases/releases/download/3.5.2.0/emby-server-freebsd_3.5.2.0_amd64.txz
+sed -i '' -e 's-.*"pkg+http://pkg.*-  url: "pkg+http://pkg.freebsd.org/FreeBSD:11:amd64/latest/",-g' /usr/local/etc/pkg/repos/FreeBSD.conf && setenv ALLOW_UNSUPPORTED_SYSTEM yes && setenv BATCH yes && portsnap fetch && portsnap extract && pkg install mono libass fontconfig freetype2 fribidi gnutls iconv opus samba48 sqlite3 libtheora libva libvorbis webp libx264 libzvbi && pkg add https://github.com/MediaBrowser/Emby.Releases/releases/download/3.5.2.0/emby-server-freebsd_3.5.2.0_amd64.txz
 ```
