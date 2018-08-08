@@ -31,3 +31,6 @@ wget https://raw.githubusercontent.com/MediaBrowser/iocage-amd64/master/emby-ser
 ```
 iocage fetch -P --name emby-server.json ip4_addr="em1|192.168.122.237/24"
 ```
+```
+iocage console emby-server && service emby-server stop && pw groupmod emby -n emby -g 3000 && pw usermod emby -n emby -u 3000 -g 3000 && chown -R emby:emby /var/db/emby-sever/ && sysrc 'emby_server_user=emby' && service emby-server start
+```
