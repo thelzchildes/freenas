@@ -29,7 +29,7 @@ sed -i '' -e 's-.*"pkg+http://pkg.*-  url: "pkg+http://pkg.freebsd.org/FreeBSD:1
 wget https://raw.githubusercontent.com/MediaBrowser/iocage-amd64/master/emby-server.json
 ```
 ```
-iocage fetch -P --name emby-server.json ip4_addr="em1|192.168.122.237/24"
+iocage fetch -P --name emby-server.json ip4_addr="em0|192.168.1.237/24"
 ```
 ```
 iocage console emby-server
