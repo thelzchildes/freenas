@@ -39,5 +39,8 @@ iocage fstab -a emby-server /mnt/tank02/video
 mkdir -p /mnt/iocage/jails/emby-server/root/mnt/video
 ```
 ```
+iocage console emby-server
+```
+```
 service emby-server start
 ```
