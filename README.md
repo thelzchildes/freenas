@@ -30,14 +30,14 @@ iocage fetch -P --name emby-server.json ip4_addr="em0|192.168.1.237/24"
 iocage console emby-server
 ```
 ```
-service emby-server stop && pw groupmod emby -n emby -g 3000 && pw usermod emby -n emby -u 3000 -g 3000 && chown -R emby:emby /var/db/emby-server/ && sysrc 'emby_server_user=emby' && service emby-server start
-```
-```
-service emby-server stop
+service emby-server stop && pw groupmod emby -n emby -g 3000 && pw usermod emby -n emby -u 3000 -g 3000 && chown -R emby:emby /var/db/emby-server/ && sysrc 'emby_server_user=emby' && exit
 ```
 ```
 iocage fstab -a emby-server /mnt/tank02/video
 ```
 ```
 mkdir -p /mnt/iocage/jails/emby-server/root/mnt/video
+```
+```
+service emby-server stop
 ```
