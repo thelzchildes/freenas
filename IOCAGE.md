@@ -30,7 +30,7 @@ iocage set boot=on {jailname}
 wget https://raw.githubusercontent.com/MediaBrowser/iocage-amd64/master/emby-server.json
 ```
 ```
-iocage fetch -P --name emby-server.json ip4_addr="em0|192.168.1.237/24"
+iocage fetch -P --name emby-server.json dhcp="on" vnet="on" allow_raw_sockets="1" boot="on" bpf=yes
 ```
 ```
 iocage console emby-server
