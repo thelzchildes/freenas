@@ -25,7 +25,8 @@ iocage list
 iocage set boot=on {jailname}
 ```
 
-# Install Emby-Server
+# Emby-Server
+## Install
 ```
 wget https://raw.githubusercontent.com/MediaBrowser/iocage-amd64/master/emby-server.json
 ```
@@ -38,6 +39,7 @@ iocage console emby-server
 ```
 service emby-server stop && pw groupmod emby -n emby -g 3000 && pw usermod emby -n emby -u 816 -g 3000 && chown -R emby:emby /var/db/emby-server/ && sysrc 'emby_server_user=emby' && exit
 ```
+## Mount Storage
 ```
 iocage fstab -a emby-server /mnt/tank02/video/movies
 iocage fstab -a emby-server /mnt/tank02/video/tvshows
@@ -52,4 +54,5 @@ iocage console emby-server
 ```
 service emby-server start
 ```
+## Port Forwarding
 Setup port forwarding for port 8096
