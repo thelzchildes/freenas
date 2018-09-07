@@ -52,3 +52,4 @@ iocage console emby-server
 ```
 service emby-server start
 ```
+## Setup port forwarding for port 8096
