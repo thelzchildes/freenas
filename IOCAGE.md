@@ -44,8 +44,6 @@ iocage fstab -a emby-server /mnt/tank02/video/tvshows
 ```
 ```
 mkdir -p /mnt/iocage/jails/emby-server/root/mnt/tank02/video/movies
-```
-```
 mkdir -p /mnt/iocage/jails/emby-server/root/mnt/tank02/video/tvshows
 ```
 ```
