@@ -32,3 +32,11 @@ pw groupmod emby -n emby -g 3000
 ```
 pw usermod emby -n emby -u 816 -g 3000
 ```
+
+# Change Boot Environment
+```
+beadm list
+```
+```
+beadm activate {environment}
+```
