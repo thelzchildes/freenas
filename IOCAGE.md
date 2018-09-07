@@ -4,19 +4,19 @@ https://fogelholk.io/using-iocage-on-freenas/
 https://www.cyberciti.biz/faq/how-to-create-freenas-jails-with-iocage/
 ```
 # Iocage Setup
-## Activate Zpool
+### Activate Zpool
 ```
 iocage activate {poolname}
 ```
-## Fetch FreeBSD
+### Fetch FreeBSD
 ```
 iocage fetch
 ```
-## List Iocage VMs
+### List Iocage VMs
 ```
 iocage list
 ```
-## Automatically Start Jail
+### Automatically Start Jail
 ```
 iocage set boot=on {jailname}
 ```
