@@ -20,9 +20,11 @@ iocage list
 ```
 iocage set boot=on {jailname}
 ```
+### List dataset mounts
 ```
 iocage fstab --list {jailname}
 ```
+### Remote dataset mounts
 ```
 iocage fstab -r {jailname} {index number}
 ```
