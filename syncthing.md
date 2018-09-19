@@ -27,7 +27,7 @@ pw addgroup merc && pw groupmod merc -g 3000 && pw useradd -n merc -u 816 -d /no
 chown -R merc:merc /usr/local/share/doc/syncthing && chown -R merc:merc /usr/local/etc/syncthing && chown -R merc:merc /usr/local/etc/rc.d/syncthing && chown -R merc:merc /usr/local/bin/syncthing && chown -R merc:merc /var/tmp/syncthing && chown -R merc:merc /var/mail/syncthing
 ```
 ```
-sysrc 'SYNCTHING_user=syncthing' && service syncthing start
+sysrc 'SYNCTHING_user=merc' && service syncthing start
 ```
 ```
 exit
