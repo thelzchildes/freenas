@@ -21,11 +21,8 @@ iocage start syncthing
 iocage console syncthing
 ```
 ```
-service syncthing stop
-```
-```
 pw addgroup merc && pw groupmod merc -g 3000 && pw useradd -n merc -u 816 -d /nonexistent -s /usr/sbin/nologin
 ```
 ```
-chown -R 
+chown -R merc:merc /usr/local/share/doc/syncthing && chown -R merc:merc /usr/local/etc/syncthing && chown -R merc:merc /usr/local/etc/rc.d/syncthing && chown -R merc:merc /usr/local/bin/syncthing && chown -R merc:merc /var/tmp/syncthing && chown -R merc:merc /var/mail/syncthing
 ```
