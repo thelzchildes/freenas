@@ -5,7 +5,8 @@ iocage fetch --plugins --name "syncthing" dhcp="on" vnet="on" allow_raw_sockets=
 iocage stop syncthing
 ```
 ```
-mkdir -p /mnt/tank03/iocage/jails/syncthing/root/mnt/video
+mkdir -p /mnt/tank03/iocage/jails/syncthing/root/mnt/video/movies
+mkdir -p /mnt/tank03/iocage/jails/syncthing/root/mnt/video/tvshows
 ```
 ```
 iocage fstab -a syncthing "/mnt/tank02/video/tvshows  /mnt/video/tvshows  nullfs  rw  0  0"
