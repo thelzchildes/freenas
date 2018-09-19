@@ -29,3 +29,6 @@ chown -R merc:merc /usr/local/share/doc/syncthing && chown -R merc:merc /usr/loc
 ```
 sysrc 'SYNCTHING_user=syncthing' && service syncthing start
 ```
+```
+iocage syncthing restart
+```
