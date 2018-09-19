@@ -20,6 +20,12 @@ iocage list
 ```
 iocage set boot=on {jailname}
 ```
+```
+iocage fstab --list {jailname}
+```
+```
+iocage fstab -r {jailname} {index number}
+```
 # Emby-Server
 ## Install
 ```
