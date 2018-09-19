@@ -11,6 +11,10 @@ mkdir -p /mnt/tank03/iocage/jails/syncthing/root/mnt/tank02/video
 iocage fstab -a syncthing /mnt/tank02/video
 ```
 ```
+iocage fstab -e syncthing
+```
+Change ro to rw
+```
 iocage start syncthing
 ```
 ```
